@@ -26,6 +26,7 @@ int main(){
     int ch;
 
     while(1) {
+        printf("\n******************************************************");
         printf("\n*** S E L E C T  F R O M  T H E  F O L L O W I N G ***");
         printf("\n1.  CREATE");
         printf("\n2.  DISPLAY");
@@ -150,8 +151,8 @@ void insert_at_end(){
     if( head_pointer == NULL)
         head_pointer = p;
     else{
-        head_pointer = p;
-        while (s1->next = NULL)
+        s1 = head_pointer;
+        while (s1->next == NULL)
         {
             s1 = s1->next;
         }
@@ -192,7 +193,7 @@ void search(){
     while (s1 != NULL)
     {
         if(s1->data == data){
-            printf("\n ...The data %d is found",data);
+            printf("\n...DATA %d is found at position %d\n",data,s1);
             break;
         }
         else{
@@ -224,12 +225,12 @@ void sort(){
             s1 = s1->next;
         }
 
-        printf("\n...After sorting the list : ");
+        printf("\n...After sorting the list : \n");
         while (head_pointer != NULL){
             printf("%d\t",head_pointer->data);
             head_pointer = head_pointer->next;
         }
-        
+        printf("\n");
     }
 }
 
