@@ -152,7 +152,7 @@ void insert_at_end(){
         head_pointer = p;
     else{
         s1 = head_pointer;
-        while (s1->next == NULL)
+        while (s1->next != NULL)
         {
             s1 = s1->next;
         }
@@ -193,7 +193,7 @@ void search(){
     while (s1 != NULL)
     {
         if(s1->data == data){
-            printf("\n...DATA %d is found at position %d\n",data,s1);
+            printf("\n...DATA %d is found at position\n",data);
             break;
         }
         else{
@@ -230,8 +230,8 @@ void sort(){
             printf("%d\t",head_pointer->data);
             head_pointer = head_pointer->next;
         }
-        printf("\n");
     }
+    printf("\n");
 }
 
 void reverse(){
@@ -322,4 +322,5 @@ void delete_at_pos(){
         printf("\nThe deleted element is : %d",s1->data);
         free(s1);
     }
+    printf("\n");
 }
