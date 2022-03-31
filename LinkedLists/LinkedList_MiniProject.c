@@ -161,21 +161,26 @@ void insert_at_end(){
 
 void insert_at_pos(){
     struct node *p, *s1;
+    int i, position;
     p=(struct node *)malloc(sizeof(struct node));
+    printf("\nEnter position :  ");
+    scanf("%d",&position);
     printf("\nEnter data :  ");
     scanf("%d",&p->data);
     p->next = NULL;
 
-    if( head_pointer == NULL)
+    if( position == 0)
+    {
+        p->next = head_pointer;
         head_pointer = p;
-    else{
-        head_pointer = p;
-        while (s1->next = NULL)
-        {
-            s1 = s1->next;
-        }
-        s1->next = p;
     }
+    else{
+        s1 = head_pointer;
+        for(i=0; i<position-1; i++)
+            s1 = s1->next;
+    }
+    p->next = s1->next;
+    s1->next = p;
 }
 
 void search(){
