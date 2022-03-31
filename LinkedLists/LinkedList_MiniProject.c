@@ -184,7 +184,22 @@ void insert_at_pos(){
 }
 
 void search(){
-
+    int data;
+    struct node *s1;
+    printf("\nEnter data you wish to search for :  ");
+    scanf("%d",&data);
+    s1 = head_pointer;
+    while (s1 != NULL)
+    {
+        if(s1->data == data){
+            printf("\n ...The data %d is found",data);
+            break;
+        }
+        else{
+            s1 = s1->next;
+        }
+    }
+     
 }
 
 void sort(){
