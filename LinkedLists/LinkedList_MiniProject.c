@@ -210,10 +210,11 @@ void sort(){
         printf("\n...list is EMPTY !");
     else{
         s1 = head_pointer;
-        while(s1 != NULL){
+        while(s1 != NULL)
+        {
             s2 = s1->next;
-            
-            while(s2 != NULL){
+            while(s2 != NULL)
+            {
                 if(s1->data > s2->data){
                     temp = s1->data;
                     s1->data = s2->data;
@@ -221,10 +222,8 @@ void sort(){
                 }
                 s2 = s2->next;
             }
-            
             s1 = s1->next;
         }
-
         printf("\n...After sorting the list : \n");
         while (head_pointer != NULL){
             printf("%d\t",head_pointer->data);
@@ -245,10 +244,10 @@ void reverse(){
         s1 = next;
     }
     head_pointer = previous;
-    printf("\n...Reversed list is : \n");
+    printf("\n ~ ...Reversed list is : \n");
     while (head_pointer != NULL)
     {
-        printf("%d:",head_pointer->data);
+        printf(" ~ %d\t",head_pointer->data);
         head_pointer = head_pointer->next;
     }
     printf("\n");
