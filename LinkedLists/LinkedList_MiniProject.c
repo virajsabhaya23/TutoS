@@ -50,7 +50,7 @@ int main(){
             create();
             break;
         case 2 : 
-            delete();
+            display();
             break;
         case 3 : 
             insert_at_start();
@@ -119,6 +119,7 @@ void display(){
         printf("\nELEMENTS in the linked list are : \n");
         while(s1 != NULL){
             printf("%d\t",s1->data);
+            s1 = s1->next;
         }
     }
 }
