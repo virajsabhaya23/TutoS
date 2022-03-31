@@ -251,12 +251,22 @@ void reverse(){
         printf("%d:",head_pointer->data);
         head_pointer = head_pointer->next;
     }
-    
-    
+    printf("\n");
 }
 
 void delete_at_start(){
-
+    struct node *s1;
+    if (head_pointer == NULL){
+        printf("\nLinked list is EMPTY");
+        exit(1);
+    }
+    else{
+        s1 = head_pointer;
+        head_pointer = head_pointer->next;
+        printf("\nThe deleted element is : %d",s1->data);
+        free(s1);
+    }
+    printf("\n");
 }
 
 void delete_at_end(){
