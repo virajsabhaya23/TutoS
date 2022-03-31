@@ -199,11 +199,38 @@ void search(){
             s1 = s1->next;
         }
     }
-     
 }
 
 void sort(){
+    struct node *s1, *s2=NULL;
+    int temp;
 
+    if(head_pointer == NULL)
+        printf("\n...list is EMPTY !");
+    else{
+        s1 = head_pointer;
+        while(s1 != NULL){
+            s2 = s1->next;
+            
+            while(s2 != NULL){
+                if(s1->data > s2->data){
+                    temp = s1->data;
+                    s1->data = s2->data;
+                    s2->data = temp;
+                }
+                s2 = s2->next;
+            }
+            
+            s1 = s1->next;
+        }
+
+        printf("\n...After sorting the list : ");
+        while (head_pointer != NULL){
+            printf("%d\t",head_pointer->data);
+            head_pointer = head_pointer->next;
+        }
+        
+    }
 }
 
 void reverse(){
