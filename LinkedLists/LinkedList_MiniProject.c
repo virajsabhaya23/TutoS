@@ -122,4 +122,67 @@ void display(){
             s1 = s1->next;
         }
     }
+    printf("\n");
+}
+
+void insert_at_start(){
+    struct node *p;
+    p=(struct node *)malloc(sizeof(struct node));
+    printf("\nEnter data :  ");
+    scanf("%d",&p->data);
+    p->next = NULL;
+
+    if( head_pointer == NULL)
+        head_pointer = p;
+    else{
+        p->next = head_pointer;
+        head_pointer = p;
+    }
+}
+
+void insert_at_end(){
+    struct node *p, *s1;
+    p=(struct node *)malloc(sizeof(struct node));
+    printf("\nEnter data :  ");
+    scanf("%d",&p->data);
+    p->next = NULL;
+
+    if( head_pointer == NULL)
+        head_pointer = p;
+    else{
+        head_pointer = p;
+        while (s1->next = NULL)
+        {
+            s1 = s1->next;
+        }
+        s1->next = p;
+    }
+}
+
+void insert_at_pos(){
+
+}
+
+void search(){
+
+}
+
+void sort(){
+
+}
+
+void reverse(){
+    
+}
+
+void delete_at_start(){
+
+}
+
+void delete_at_end(){
+
+}
+
+void delete_at_pos(){
+
 }
