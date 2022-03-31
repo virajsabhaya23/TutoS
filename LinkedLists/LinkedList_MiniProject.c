@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define P printf(
+
 void create();
 void display();
 void insert_at_start();
@@ -26,23 +28,23 @@ int main(){
     int ch;
 
     while(1) {
-        printf("\n******************************************************");
-        printf("\n*** S E L E C T  F R O M  T H E  F O L L O W I N G ***");
-        printf("\n1.  CREATE");
-        printf("\n2.  DISPLAY");
-        printf("\n3.  INSERT Node at the start of the list");
-        printf("\n4.  INSERT Node at the end of the list");
-        printf("\n5.  INSERT Node at a specific position in the list");
-        printf("\n6.  SEARCH data of a Node in the list");
-        printf("\n7.  SORT the given linked list");
-        printf("\n8.  REVERSE the given linked list");
-        printf("\n9.  DELETE Node at the start of the list");
-        printf("\n10. DELETE Node at the end of the list");
-        printf("\n11. DELETE Node at a specific position in the list");
-        printf("\n12. EXIT or QUIT");
-        printf("\n******************************************************");
+        P"\n******************************************************");
+        P"\n*** S E L E C T  F R O M  T H E  F O L L O W I N G ***");
+        P"\n1.  CREATE");
+        P"\n2.  DISPLAY");
+        P"\n3.  INSERT Node at the start of the list");
+        P"\n4.  INSERT Node at the end of the list");
+        P"\n5.  INSERT Node at a specific position in the list");
+        P"\n6.  SEARCH data of a Node in the list");
+        P"\n7.  SORT the given linked list");
+        P"\n8.  REVERSE the given linked list");
+        P"\n9.  DELETE Node at the start of the list");
+        P"\n10. DELETE Node at the end of the list");
+        P"\n11. DELETE Node at a specific position in the list");
+        P"\n12. EXIT or QUIT");
+        P"\n******************************************************");
 
-        printf("\n\nENTER your choice :  ");
+        P"\n\nENTER your choice :  ");
         scanf("%d",&ch);
     
         switch (ch)
@@ -85,7 +87,7 @@ int main(){
             break;
 
         default:
-        printf("\nInvalid Choice entered");
+        P"\nInvalid Choice entered");
             break;
         }
     }
@@ -95,7 +97,7 @@ int main(){
 void create(){
     struct node *p, *s1;
     p = (struct node *)malloc(sizeof(struct node));
-    printf("\nEnter data :  ");
+    P"\nEnter data :  ");
     scanf("%d",&p->data);
     p->next=NULL;
 
@@ -112,24 +114,24 @@ void create(){
 void display(){
     struct node * s1;
     if(head_pointer == NULL){
-        printf("\nLinked list is EMPTY...");
+        P"\nLinked list is EMPTY...");
         return;
     }
     else{
         s1 = head_pointer;
-        printf("\nELEMENTS in the linked list are : \n");
+        P"\nELEMENTS in the linked list are : \n");
         while(s1 != NULL){
-            printf("%d\t",s1->data);
+            P"%d\t",s1->data);
             s1 = s1->next;
         }
     }
-    printf("\n");
+    P"\n");
 }
 
 void insert_at_start(){
     struct node *p;
     p=(struct node *)malloc(sizeof(struct node));
-    printf("\nEnter data :  ");
+    P"\nEnter data :  ");
     scanf("%d",&p->data);
     p->next = NULL;
 
@@ -144,7 +146,7 @@ void insert_at_start(){
 void insert_at_end(){
     struct node *p, *s1;
     p=(struct node *)malloc(sizeof(struct node));
-    printf("\nEnter data :  ");
+    P"\nEnter data :  ");
     scanf("%d",&p->data);
     p->next = NULL;
 
@@ -164,9 +166,9 @@ void insert_at_pos(){
     struct node *p, *s1;
     int i, position;
     p=(struct node *)malloc(sizeof(struct node));
-    printf("\nEnter position :  ");
+    P"\nEnter position :  ");
     scanf("%d",&position);
-    printf("\nEnter data :  ");
+    P"\nEnter data :  ");
     scanf("%d",&p->data);
     p->next = NULL;
 
@@ -187,13 +189,13 @@ void insert_at_pos(){
 void search(){
     int data;
     struct node *s1;
-    printf("\nEnter data you wish to search for :  ");
+    P"\nEnter data you wish to search for :  ");
     scanf("%d",&data);
     s1 = head_pointer;
     while (s1 != NULL)
     {
         if(s1->data == data){
-            printf("\n...DATA %d is found at position\n",data);
+            P"\n...DATA %d is found at position\n",data);
             break;
         }
         else{
@@ -207,7 +209,7 @@ void sort(){
     int temp;
 
     if(head_pointer == NULL)
-        printf("\n...list is EMPTY !");
+        P"\n...list is EMPTY !");
     else{
         s1 = head_pointer;
         while(s1 != NULL)
@@ -224,13 +226,14 @@ void sort(){
             }
             s1 = s1->next;
         }
-        printf("\n...After sorting the list : \n");
+
+        P"\n...After sorting the list : \n");
         while (head_pointer != NULL){
-            printf("%d\t",head_pointer->data);
+            P"%d\t",head_pointer->data);
             head_pointer = head_pointer->next;
         }
     }
-    printf("\n");
+    P"\n");
 }
 
 void reverse(){
@@ -244,40 +247,40 @@ void reverse(){
         s1 = next;
     }
     head_pointer = previous;
-    printf("\n ~ ...Reversed list is : \n");
+    P"\n ~ ...Reversed list is : \n");
     while (head_pointer != NULL)
     {
-        printf(" ~ %d\t",head_pointer->data);
+        P" ~ %d\t",head_pointer->data);
         head_pointer = head_pointer->next;
     }
-    printf("\n");
+    P"\n");
 }
 
 void delete_at_start(){
     struct node *s1;
     if (head_pointer == NULL){
-        printf("\nLinked list is EMPTY");
+        P"\nLinked list is EMPTY");
         exit(1);
     }
     else{
         s1 = head_pointer;
         head_pointer = head_pointer->next;
-        printf("\nThe deleted element is : %d",s1->data);
+        P"\nThe deleted element is : %d",s1->data);
         free(s1);
     }
-    printf("\n");
+    P"\n");
 }
 
 void delete_at_end(){
     struct node *s1, *temp;
     if (head_pointer == NULL){
-        printf("\nLinked list is EMPTY");
+        P"\nLinked list is EMPTY");
         exit(0);
     }
     else if(head_pointer->next == NULL){
         s1 = head_pointer;
         s1 = NULL;
-        printf("\nThe deleted element is : %d",s1->data);
+        P"\nThe deleted element is : %d",s1->data);
         free(s1);
     }
     else{
@@ -287,27 +290,27 @@ void delete_at_end(){
             s1 = s1->next;
         }
         temp->next = NULL;
-        printf("\nThe deleted element is : %d",s1->data);
+        P"\nThe deleted element is : %d",s1->data);
         free(s1);
     }
-    printf("\n");
+    P"\n");
 }
 
 void delete_at_pos(){
     int i, position;
     struct node *s1, *temp;
     if(head_pointer == NULL){
-        printf("\nLinked list is EMPTY");
+        P"\nLinked list is EMPTY");
         exit(0);
     }
     else{
-        printf("\nENTER the position of the element to delete : ");
+        P"\nENTER the position of the element to delete : ");
         scanf("%d",&position);
         
         if(position == 0){
             s1 = head_pointer;
             head_pointer = head_pointer->next;
-            printf("\nThe deleted element is : %d",s1->data);
+            P"\nThe deleted element is : %d",s1->data);
             free(s1);
         }
         else{
@@ -318,8 +321,8 @@ void delete_at_pos(){
             }
         }
         temp->next = s1->next;
-        printf("\nThe deleted element is : %d",s1->data);
+        P"\nThe deleted element is : %d",s1->data);
         free(s1);
     }
-    printf("\n");
+    P"\n");
 }
