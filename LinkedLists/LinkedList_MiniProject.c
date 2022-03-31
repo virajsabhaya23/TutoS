@@ -235,6 +235,23 @@ void sort(){
 }
 
 void reverse(){
+    struct node *s1, *previous = NULL, *next = NULL;
+    s1 = head_pointer;
+    while (s1 != NULL)
+    {
+        next = s1->next;
+        s1->next = previous;
+        previous = s1;
+        s1 = next;
+    }
+    head_pointer = previous;
+    printf("\n...Reversed list is : \n");
+    while (head_pointer != NULL)
+    {
+        printf("%d:",head_pointer->data);
+        head_pointer = head_pointer->next;
+    }
+    
     
 }
 
