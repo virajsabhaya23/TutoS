@@ -270,9 +270,56 @@ void delete_at_start(){
 }
 
 void delete_at_end(){
-
+    struct node *s1, *temp;
+    if (head_pointer == NULL){
+        printf("\nLinked list is EMPTY");
+        exit(0);
+    }
+    else if(head_pointer->next == NULL){
+        s1 = head_pointer;
+        s1 = NULL;
+        printf("\nThe deleted element is : %d",s1->data);
+        free(s1);
+    }
+    else{
+        s1 = head_pointer;
+        while(s1->next != NULL){
+            temp = s1;
+            s1 = s1->next;
+        }
+        temp->next = NULL;
+        printf("\nThe deleted element is : %d",s1->data);
+        free(s1);
+    }
+    printf("\n");
 }
 
 void delete_at_pos(){
-
+    int i, position;
+    struct node *s1, *temp;
+    if(head_pointer == NULL){
+        printf("\nLinked list is EMPTY");
+        exit(0);
+    }
+    else{
+        printf("\nENTER the position of the element to delete : ");
+        scanf("%d",&position);
+        
+        if(position == 0){
+            s1 = head_pointer;
+            head_pointer = head_pointer->next;
+            printf("\nThe deleted element is : %d",s1->data);
+            free(s1);
+        }
+        else{
+            s1 = head_pointer;
+            for(i=0; i<position; i++ && s1->next != NULL){
+                temp = head_pointer;
+                head_pointer = head_pointer->next;
+            }
+        }
+        temp->next = s1->next;
+        printf("\nThe deleted element is : %d",s1->data);
+        free(s1);
+    }
 }
